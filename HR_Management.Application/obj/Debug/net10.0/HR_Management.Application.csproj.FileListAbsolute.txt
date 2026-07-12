@@ -1,0 +1,15 @@
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/bin/Debug/net10.0/HR_Management.Application.deps.json
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/bin/Debug/net10.0/HR_Management.Application.dll
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/bin/Debug/net10.0/HR_Management.Application.pdb
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/bin/Debug/net10.0/HR_Management.Domain.dll
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/bin/Debug/net10.0/HR_Management.Domain.pdb
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.csproj.AssemblyReference.cache
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.AssemblyInfoInputs.cache
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.AssemblyInfo.cs
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.csproj.CoreCompileInputs.cache
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Manag.DF611B53.Up2Date
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.dll
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/refint/HR_Management.Application.dll
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/HR_Management.Application.pdb
+/Users/sarvar/RiderProjects/HR_Management/HR_Management.Application/obj/Debug/net10.0/ref/HR_Management.Application.dll

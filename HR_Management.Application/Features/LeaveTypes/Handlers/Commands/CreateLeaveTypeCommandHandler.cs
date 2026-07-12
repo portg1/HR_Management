@@ -1,4 +1,5 @@
 using AutoMapper;
+using HR_Management.Application.Exceptions;
 using HR_Management.Application.DTOs.LeaveType.Validators;
 using HR_Management.Application.Features.LeaveTypes.Requests.Commands;
 using HR_Management.Application.Persistence.Contracts;
@@ -23,7 +24,7 @@ public class CreateLeaveTypeCommandHandler:IRequestHandler<CreateLeaveTypeComman
         var validationResult = await validator.ValidateAsync(command.LeaveTypeDto);
         if (validationResult.IsValid == false)
         {
-            throw new Exception();
+            throw new ValidationException(validationResult);
 
         }
         var leaveType = _mapper.Map<LeaveType>(command.LeaveTypeDto);

@@ -1,8 +1,8 @@
 using AutoMapper;
+using HR_Management.Application.Contracts.Persistense;
 using HR_Management.Application.DTOs.LeaveType.Validators;
 using HR_Management.Application.Exceptions;
 using HR_Management.Application.Features.LeaveTypes.Requests.Commands;
-using HR_Management.Application.Persistence.Contracts;
 using MediatR;
 
 namespace HR_Management.Application.Features.LeaveTypes.Handlers.Commands;
@@ -27,8 +27,13 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
         }
 
         var leaveType = await _leaveTypeRepository.Get(request.LeaveTypeDto.Id);
+        if (leaveType == null)
+        {
+            throw new NotFoundException(nameof(leaveType), request.LeaveTypeDto.Id);
+        }
+
         _mapper.Map(request.LeaveTypeDto, leaveType);
-        _leaveTypeRepository.Update(leaveType);
+        await _leaveTypeRepository.Update(leaveType);
         return Unit.Value;
     }
 }

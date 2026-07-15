@@ -1,5 +1,5 @@
 using FluentValidation;
-using HR_Management.Application.Persistence.Contracts;
+using HR_Management.Application.Contracts.Persistense;
 
 namespace HR_Management.Application.DTOs.LeaveAllocation.Validators;
 

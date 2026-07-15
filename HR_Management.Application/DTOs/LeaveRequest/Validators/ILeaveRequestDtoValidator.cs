@@ -1,5 +1,5 @@
 using FluentValidation;
-using HR_Management.Application.Persistence.Contracts;
+using HR_Management.Application.Contracts.Persistense;
 
 namespace HR_Management.Application.DTOs.LeaveRequest.Validators;
 
@@ -18,7 +18,7 @@ public class ILeaveRequestDtoValidator : AbstractValidator<UpdateLeaveRequestDto
             .MustAsync(async (id, token) =>
             {
                 var leaveTypeExist = await leaveTypeRepository.Exist(id);
-                return !leaveTypeExist;
+                return leaveTypeExist;
             })
             .WithMessage("{PropertyName} does not exist.");
     }

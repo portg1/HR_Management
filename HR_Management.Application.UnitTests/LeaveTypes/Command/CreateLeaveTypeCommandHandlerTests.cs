@@ -1,4 +1,5 @@
 using AutoMapper;
+using HR_Management.Application.Contracts.Infrastructure;
 using HR_Management.Application.Contracts.Persistense;
 using HR_Management.Application.DTOs.LeaveType;
 using HR_Management.Application.Profiles;
@@ -13,11 +14,13 @@ namespace HR_Management.Application.UnitTests.LeaveTypes.Command
     public class CreateLeaveTypeCommandHandlerTests
     {
         private readonly Mock<ILeaveTypeRepository> _mockRepository;
+        private readonly Mock<ICacheService> _mockCacheService;
         private readonly IMapper _mapper;
 
         public CreateLeaveTypeCommandHandlerTests()
         {
             _mockRepository = MockLeaveRepository.GetLeaveTypeRepository();
+            _mockCacheService = new Mock<ICacheService>();
             var mapperConfig = new MapperConfiguration(m =>
             {
                 m.AddProfile<MappingProfile>();
@@ -26,7 +29,7 @@ namespace HR_Management.Application.UnitTests.LeaveTypes.Command
         }
 
         [Fact]
-        public async Task Handle_ValidCommand_AddsLeaveTypeAndReturnsId()
+        public async Task ValidCommand_AddsAndReturnsId()
         {
             var command = new CreateLeaveTypeCommand
             {
@@ -45,7 +48,7 @@ namespace HR_Management.Application.UnitTests.LeaveTypes.Command
                     return leaveType;
                 });
 
-            var handler = new CreateLeaveTypeCommandHandler(_mockRepository.Object, _mapper);
+            var handler = new CreateLeaveTypeCommandHandler(_mockRepository.Object, _mapper, _mockCacheService.Object);
 
             var result = await handler.Handle(command, CancellationToken.None);
 
@@ -56,6 +59,9 @@ namespace HR_Management.Application.UnitTests.LeaveTypes.Command
                     leaveType.Name == "Test Vacation" &&
                     leaveType.DefaultDay == 10)),
                 Times.Once);
+
+            // Verify cache was invalidated after create
+            _mockCacheService.Verify(cs => cs.RemoveAsync("leave_types_list", CancellationToken.None), Times.Once);
         }
 
     }

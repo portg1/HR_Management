@@ -26,6 +26,7 @@ public static class MockLeaveRepository
         };
         var mockRepo = new Mock<ILeaveTypeRepository>();
         mockRepo.Setup(r => r.GetAll()).ReturnsAsync(leaveTypes);
+        mockRepo.Setup(r => r.Exist(It.IsAny<int>())).ReturnsAsync(true);
         mockRepo.Setup(r =>r.Add(It.IsAny<LeaveType>()))
             .ReturnsAsync((LeaveType leavetype) =>
             {
